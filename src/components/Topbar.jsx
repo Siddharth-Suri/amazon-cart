@@ -12,20 +12,25 @@ export function TopBar() {
         
     }
     return (
-        <div>
-        <div className="flex items-center justify-between  bg-gray-700 h-28 ">
-            <div className="text-2xl font-bold pl-5 border-transparent cursor-pointer" onClick={NavigateToHome}>Amazon.in</div>
-            <div className="flex space-x-5 cursor-pointer">
+      <div>
+        <div className=" text-white	flex items-center justify-between  bg-gray-800 h-28 ">
+          <div
+            className="text-2xl font-bold pl-5 border-transparent cursor-pointer"
+            onClick={NavigateToHome}
+          >
+            Amazon.in
+          </div>
+          <div className="flex space-x-5 cursor-pointer">
             <div className="">Hello User</div>
 
-            
-            <div className="pt-0.5 pr-5 cursor-pointer" onClick={NavigateToCart}>
-                
-                <CartIcon></CartIcon>
+            <div
+              className="pt-0.5 pr-5 cursor-pointer"
+              onClick={NavigateToCart}
+            >
+              <CartIcon></CartIcon>
             </div>
-            
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     );
 }

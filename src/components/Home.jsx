@@ -1,15 +1,21 @@
 import { ShopCard } from "./ShopCard";
+import { ProductObject } from "./Products";
 
-export function HomeLandingPage (){
-    return (
-      <div>
-        <div className="flex grid grid-cols-3 gap-3 ">
-          <ShopCard></ShopCard>
-          <ShopCard></ShopCard>
-          <ShopCard></ShopCard>
-          <ShopCard></ShopCard>
-          <ShopCard></ShopCard>
-        </div>
+export function HomeLandingPage() {
+  return (
+    <div>
+      <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {ProductObject.map((product) => (
+          <ShopCard
+            key={product.id} 
+            props={{
+              name: product.name,
+              image: product.image,
+              price: product.price,
+            }}
+          />
+        ))}
       </div>
-    );
+    </div>
+  );
 }

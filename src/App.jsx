@@ -5,19 +5,24 @@ import viteLogo from '/vite.svg'
 import { MainCart } from './components/AmazonCart'
 import { HomeLandingPage } from './components/Home'
 import { TopBar } from './components/Topbar'
+import { RecoilRoot } from 'recoil'
 
 function App() {
 
   return (
     <div>
-      <BrowserRouter>
-          
+      <RecoilRoot>
+        <BrowserRouter>
           <TopBar></TopBar>
-        <Routes>
-          <Route path='/' element={<HomeLandingPage></HomeLandingPage>}></Route>
-          <Route path="/cart" element={<MainCart></MainCart>}></Route>
-        </Routes>
-      </BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={<HomeLandingPage></HomeLandingPage>}
+            ></Route>
+            <Route path="/cart" element={<MainCart></MainCart>}></Route>
+          </Routes>
+        </BrowserRouter>
+      </RecoilRoot>
     </div>
   );
 }

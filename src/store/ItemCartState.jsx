@@ -1,4 +1,4 @@
-import React from React
+
 import { RecoilRoot } from 'recoil';
 import { atom } from 'recoil';
 
