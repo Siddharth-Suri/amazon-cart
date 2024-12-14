@@ -15,6 +15,7 @@ export const ShopCard= React.memo(({props})=>{
           <div className=" rounded-full	bg-blue-500 p-3 border-2 m-3 cursor-pointer hover:bg-blue-900 shadow-xl	"
                 onClick={()=>{setCurrentCart((prevCart)=>({
                     ...prevCart,
+                    
                     [props.id]:{
                         name:props.name,
                         price:props.price,

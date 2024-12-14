@@ -9,9 +9,10 @@ export function HomeLandingPage() {
           <ShopCard
             key={product.id} 
             props={{
-              name: product.name,
-              image: product.image,
-              price: product.price,
+                id:product.id,
+                name: product.name,
+                image: product.image,
+                price: product.price,
             }}
           />
         ))}

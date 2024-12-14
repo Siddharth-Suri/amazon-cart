@@ -5,9 +5,9 @@ export function MainCart (){
     const [currentCart,SetCurrentCart]=useRecoilState(cartItems)
     const sumCurrentCart=useRecoilValue(sumCartItems)
     return (
-      <div className=" h-screen w-full bg-gray-500 ">
-        <div className="flex justify-between">
-          <div className=" font-bold text-2xl w-full bg-white  border-gray-600 p-5 m-5 border-4">
+      <div className=" h-full w-full bg-gray-500 ">
+        <div className="justify-between md:flex">
+          <div className=" font-bold text-2xl w-full  bg-white  border-gray-600 p-5 m-5 border-4">
             Shopping Cart
             <div>
               {console.log(currentCart)}
