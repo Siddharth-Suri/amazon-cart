@@ -7,24 +7,25 @@ export function MainCart (){
     return (
       <div className=" h-screen w-full bg-gray-500 ">
         <div className="flex justify-between">
-          <div className=" font-bold text-2xl w-80 bg-white p-5 m-5 border-4">
+          <div className=" font-bold text-2xl w-full bg-white  border-gray-600 p-5 m-5 border-4">
             Shopping Cart
             <div>
-                {console.log(currentCart)}
-              
+              {console.log(currentCart)}
+
               {Object.entries(currentCart).map(([key, product]) => (
                 <div
                   key={product.id}
-                  className="flex justify-between border-b-2 p-2"
+                  className="flex justify-between border-b-2 p-2 m-3 text-base align-center items-center"
                 >
+                  <img className="w-32 h-32" src={product.image}></img>
                   <div>{product.name}</div>
-                  <img src={product.image}></img>
+
                   <div>₹{product.price}</div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="font-bold text-2xl w-80 bg-white p-8 m-6">
+          <div className="font-bold text-2xl w-80 border-4 border-gray-600 shadow-md bg-white p-8 m-6">
             Order Summary
             <div></div>
             <div>
