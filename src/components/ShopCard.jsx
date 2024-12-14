@@ -1,8 +1,8 @@
-import { useSetRecoilState } from "recoil";
+import { useRecoilState,useSetRecoilState } from "recoil";
 import { cartItems } from "../store/ItemCartState";
 import React from "react";
 export const ShopCard= React.memo(({props})=>{
-    const [SetCurrentCart]=useSetRecoilState(cartItems)
+    const [currentCart,setCurrentCart] = useRecoilState(cartItems);    
     return (
       <div className="items-center text-center ">
         <div className=" m-3 border-3 p-3 ">
@@ -13,7 +13,21 @@ export const ShopCard= React.memo(({props})=>{
           <div className="p-2">{props.name}</div>
           <div className="p-2">₹{props.price}</div>
           <div className=" rounded-full	bg-blue-500 p-3 border-2 m-3 cursor-pointer hover:bg-blue-900 shadow-xl	"
-                onClick={}>
+                onClick={()=>{setCurrentCart((prevCart)=>({
+                    ...prevCart,
+                    [props.id]:{
+                        name:props.name,
+                        price:props.price,
+                        image:props.image,
+                    }               
+
+                   
+
+                }))
+                console.log(currentCart)
+            }
+               
+                }>
             Add to cart
           </div>
         </div>

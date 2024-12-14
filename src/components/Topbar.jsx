@@ -1,6 +1,7 @@
+import React, { useMemo } from "react";
 import { CartIcon } from "../assets/CartIcon";
 import { Routes , useNavigate } from "react-router-dom"
-export function TopBar() {
+export const TopBar = React.memo(()=> {
 
     const Navigate = useNavigate()
     function NavigateToCart(){
@@ -33,4 +34,4 @@ export function TopBar() {
         </div>
       </div>
     );
-}
+})
