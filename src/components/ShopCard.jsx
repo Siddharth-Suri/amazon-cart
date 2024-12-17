@@ -1,8 +1,22 @@
 import { useRecoilState,useSetRecoilState } from "recoil";
 import { cartItems } from "../store/ItemCartState";
-import React from "react";
+import { Navigate, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+
+
+
 export const ShopCard= React.memo(({props})=>{
-    const [currentCart,setCurrentCart] = useRecoilState(cartItems);    
+    const Navigate = useNavigate();
+  
+    function NavigateToCart() {
+      Navigate("/cart");
+    }
+
+
+    const [visibility,setVisibility]=useState(false)
+    const [currentCart,setCurrentCart] = useRecoilState(cartItems);   
+    console.log(visibility); 
     return (
       <div className="items-center text-center ">
         <div className=" m-3 border-3 p-3 ">
@@ -12,25 +26,42 @@ export const ShopCard= React.memo(({props})=>{
           </div>
           <div className="p-2">{props.name}</div>
           <div className="p-2">₹{props.price}</div>
-          <div className=" rounded-full	bg-blue-500 p-3 border-2 m-3 cursor-pointer hover:bg-blue-900 shadow-xl	"
-                onClick={()=>{setCurrentCart((prevCart)=>({
+          <div
+            className=" rounded-full	bg-blue-500 p-3 border-2 m-3 cursor-pointer hover:bg-blue-900 shadow-xl	"
+            onClick={() => {
+                setVisibility(true)
+              setCurrentCart((prevCart) => {
+                if (prevCart[props.id]) {
+                  return {
                     ...prevCart,
-                    
-                    [props.id]:{
-                        name:props.name,
-                        price:props.price,
-                        image:props.image,
-                    }               
-
-                   
-
-                }))
-                console.log(currentCart)
-            }
-               
-                }>
+                    [props.id]: {
+                      ...prevCart[props.id],
+                      quantity: prevCart[props.id].quantity + 1,
+                    },
+                  };
+                } else {
+                  return {
+                    ...prevCart,
+                    [props.id]: {
+                      name: props.name,
+                      price: props.price,
+                      image: props.image,
+                      quantity: 1,
+                    },
+                  };
+                }
+              });
+            }}
+          >
             Add to cart
-          </div>
+        </div>
+          {visibility ? (<div className=" rounded-full bg-yellow-500 p-3 border-2 m-3 cursor-pointer hover:bg-yellow-900 shadow-xl"
+            onClick={NavigateToCart}
+          >
+            
+            Go to cart
+          </div>):(<div></div>)}
+          
         </div>
       </div>
     );

@@ -13,6 +13,7 @@ export function HomeLandingPage() {
                 name: product.name,
                 image: product.image,
                 price: product.price,
+                
             }}
           />
         ))}

@@ -10,17 +10,16 @@ export function MainCart (){
           <div className=" font-bold text-2xl w-full  bg-white  border-gray-600 p-5 m-5 border-4">
             Shopping Cart
             <div>
-              {console.log(currentCart)}
-
               {Object.entries(currentCart).map(([key, product]) => (
                 <div
                   key={product.id}
-                  className="flex justify-between border-b-2 p-2 m-3 text-base align-center items-center"
+                  className="justify-between border-b-2 p-2 m-3 text-base align-center items-center sm:flex "
                 >
                   <img className="w-32 h-32" src={product.image}></img>
                   <div>{product.name}</div>
 
                   <div>₹{product.price}</div>
+                  <div>Qt: {product.quantity}</div>
                 </div>
               ))}
             </div>
