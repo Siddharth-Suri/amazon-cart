@@ -1,9 +1,9 @@
 import { sumCartItems } from "../store/ItemCartSum";
-import { constSelector, useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { cartItems } from "../store/ItemCartState";
 import { Items } from "../store/ItemsForCartState";
 import { Buttons } from "./Buttons";
-import { object } from "zod";
+
 export function MainCart() {
     const [currentCart, setCurrentCart] = useRecoilState(cartItems);
     const sumCurrentCart = useRecoilValue(sumCartItems);
